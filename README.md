@@ -12,7 +12,7 @@ Este proyecto es una aplicación web construida con ASP.NET Core 6.0, que sigue 
 
 ### 1. Clonar el Repositorio
 
-```bash
+
 git clone https://github.com/tu-usuario/banco-fondos.git
 cd banco-fondos
 
@@ -29,8 +29,8 @@ json
 Asegúrate de reemplazar los valores Server, User Id, y Password con tus propios detalles de conexión.
 
 ### 3. Instalar Dependencias
-Restaura las dependencias del proyecto utilizando el siguiente comando:
-```bash
+Restaura las dependencias del proyecto utilizando el siguiente comando: 
+
 dotnet restore.
 
 ### 4. Crear la Base de Datos y Aplicar Migraciones
