@@ -1,11 +1,11 @@
-C:\Users\crist\source\repos\BancoFondos\BancoFondos.Core\bin\Debug\net6.0\BancoFondos.Core.deps.json
-C:\Users\crist\source\repos\BancoFondos\BancoFondos.Core\bin\Debug\net6.0\BancoFondos.Core.dll
-C:\Users\crist\source\repos\BancoFondos\BancoFondos.Core\bin\Debug\net6.0\BancoFondos.Core.pdb
 C:\Users\crist\source\repos\BancoFondos\BancoFondos.Core\obj\Debug\net6.0\BancoFondos.Core.csproj.AssemblyReference.cache
 C:\Users\crist\source\repos\BancoFondos\BancoFondos.Core\obj\Debug\net6.0\BancoFondos.Core.GeneratedMSBuildEditorConfig.editorconfig
 C:\Users\crist\source\repos\BancoFondos\BancoFondos.Core\obj\Debug\net6.0\BancoFondos.Core.AssemblyInfoInputs.cache
 C:\Users\crist\source\repos\BancoFondos\BancoFondos.Core\obj\Debug\net6.0\BancoFondos.Core.AssemblyInfo.cs
 C:\Users\crist\source\repos\BancoFondos\BancoFondos.Core\obj\Debug\net6.0\BancoFondos.Core.csproj.CoreCompileInputs.cache
+C:\Users\crist\source\repos\BancoFondos\BancoFondos.Core\bin\Debug\net6.0\BancoFondos.Core.deps.json
+C:\Users\crist\source\repos\BancoFondos\BancoFondos.Core\bin\Debug\net6.0\BancoFondos.Core.dll
+C:\Users\crist\source\repos\BancoFondos\BancoFondos.Core\bin\Debug\net6.0\BancoFondos.Core.pdb
 C:\Users\crist\source\repos\BancoFondos\BancoFondos.Core\obj\Debug\net6.0\BancoFondos.Core.dll
 C:\Users\crist\source\repos\BancoFondos\BancoFondos.Core\obj\Debug\net6.0\refint\BancoFondos.Core.dll
 C:\Users\crist\source\repos\BancoFondos\BancoFondos.Core\obj\Debug\net6.0\BancoFondos.Core.pdb

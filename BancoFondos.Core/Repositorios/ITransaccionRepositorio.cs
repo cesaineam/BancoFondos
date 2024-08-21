@@ -12,6 +12,6 @@ namespace BancoFondos.Core.Repositorios
         Task<Transaccion> InsertarTransaccionAsync(Transaccion transaccion);
         Task<List<Transaccion>> GetHistorialTransaccionesAsync(int clienteId);
 
-        Task<Cliente> InsertarTransaccionAsync(int idCliente);
+        
     }
 }

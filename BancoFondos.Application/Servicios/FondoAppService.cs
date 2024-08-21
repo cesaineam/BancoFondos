@@ -40,5 +40,12 @@ namespace BancoFondos.Application.Servicios
             var resultadoTransaccion = await _fondoDominioServicio.MoverFondo(movimiento, tipoMovimiento);
             return FondoMapper.ResultadoTransaccionConvertirEntidadADto(resultadoTransaccion);
         }
+
+        public async Task<List<FondoOutputDto>> ObtenerFondosPorClienteIdAsync(int clienteId)
+        {
+            var fondos = await _fondoDominioServicio.ObtenerFondosPorClienteIdAsync(clienteId);
+            return fondos.Select(fondo => FondoMapper.FondoConvertirEntidadADto(fondo)).ToList();
+        }
+
     }
 }

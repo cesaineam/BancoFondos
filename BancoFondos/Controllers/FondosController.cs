@@ -57,4 +57,16 @@ public class FondosController : ControllerBase
         var movimiento = await _fondoService.MoverFondo(transaccionDto, tipoMovimiento);
         return Ok(movimiento);
     }
+    [HttpGet("ObtenerFondosxId/{clienteId}")]
+    public async Task<IActionResult> ObtenerFondosxId(int clienteId)
+    {
+        var fondos = await _fondoService.ObtenerFondosPorClienteIdAsync(clienteId);
+
+        if (fondos == null || fondos.Count == 0)
+        {
+            return NotFound("No se encontraron fondos para este usuario.");
+        }
+
+        return Ok(fondos);
+    }
 }

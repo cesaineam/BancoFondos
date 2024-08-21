@@ -17,5 +17,8 @@ namespace BancoFondos.Application.Interfaces
         Task<List<TransaccionOutputDto>> GetHistorialTransaccionesAsync(int clienteId);
 
         Task<ResultadoTransaccionDto> MoverFondo(InsertarTransaccionInputDto transaccion, string tipoMovimiento);
+        Task<List<FondoOutputDto>> ObtenerFondosPorClienteIdAsync(int clienteId);
+
+
     }
 }

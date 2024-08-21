@@ -87,8 +87,8 @@ namespace BancoFondos.Core.DominioServicios
             else
             {
                 //DeshabilitarFondo
-                var fondo = await _fondoRepositorio.ObtenerPorIdAsync(transaccion.FondoId);
-                if (fondo == null)
+                var fondoConsulta = await _fondoRepositorio.ObtenerFondoPorIdAsync(transaccion.FondoId);
+                if (fondoConsulta == null)
                 {
                     return new ResultadoTransaccion
                     {
@@ -97,8 +97,8 @@ namespace BancoFondos.Core.DominioServicios
                     }; ; // Fondo no encontrado
                 }
 
-                fondo.Estado = "Cancelado";
-                await _fondoRepositorio.ActualizarAsync(fondo);
+                fondoConsulta.Estado = "Cancelado";
+                await _fondoRepositorio.ActualizarAsync(fondoConsulta);
 
                 //Debitar saldo a cliente 
                 cliente.Saldo += transaccion.Monto;
@@ -118,5 +118,10 @@ namespace BancoFondos.Core.DominioServicios
             
 
         }
+        public async Task<List<Fondo>> ObtenerFondosPorClienteIdAsync(int clienteId)
+        {
+            return await _fondoRepositorio.ObtenerFondosPorClienteIdAsync(clienteId);
+        }
+
     }
 }

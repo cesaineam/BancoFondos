@@ -13,6 +13,7 @@ namespace BancoFondos.Core.Repositorios
         Task<FondosInfo> ObtenerPorIdAsync(int id);
         Task ActualizarAsync(Fondo fondo);
         Task<Fondo> ObtenerFondoPorIdAsync(int id);
+        Task<List<Fondo>> ObtenerFondosPorClienteIdAsync(int clienteId);
 
     }
 }
