@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "Hash": "fZ917l3yxWNdabiDfvwZUQqwqT6A4Lv+un58r4aWPng=",
+  "Source": "BancoFondos.WebApi",
+  "BasePath": "_content/BancoFondos.WebApi",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": []
+}
