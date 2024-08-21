@@ -29,7 +29,8 @@ json
 Asegúrate de reemplazar los valores Server, User Id, y Password con tus propios detalles de conexión.
 
 ### 3. Instalar Dependencias
-Restaura las dependencias del proyecto utilizando el siguiente comando.
+Restaura las dependencias del proyecto utilizando el siguiente comando:
+'''bash
 dotnet restore.
 
 ### 4. Crear la Base de Datos y Aplicar Migraciones
