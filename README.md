@@ -12,7 +12,7 @@ Este proyecto es una aplicación web construida con ASP.NET Core 6.0, que sigue 
 
 ### 1. Clonar el Repositorio
 
-```bash
+
 git clone https://github.com/tu-usuario/banco-fondos.git
 cd banco-fondos
 
