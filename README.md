@@ -29,13 +29,11 @@ json
 Asegúrate de reemplazar los valores Server, User Id, y Password con tus propios detalles de conexión.
 
 ### 3. Instalar Dependencias
-Restaura las dependencias del proyecto utilizando el siguiente comando:
+Restaura las dependencias del proyecto utilizando el siguiente comando.
+dotnet restore.
 
-bash
-Copiar código
-dotnet restore
-###4. Crear la Base de Datos y Aplicar Migraciones
-4.1. Crear Migraciones
+### 4. Crear la Base de Datos y Aplicar Migraciones
+#### 4.1. Crear Migraciones
 Para crear una nueva migración de la base de datos, abre la consola del Administrador de Paquetes (PMC) o usa la CLI de .NET, dependiendo de tus preferencias.
 
 Usando la Consola del Administrador de Paquetes:
@@ -47,7 +45,7 @@ Usando la CLI de .NET:
 
 
 dotnet ef migrations add Inicial --project BancoFondos.EntityFramework --startup-project BancoFondos.WebApi
-4.2. Aplicar las Migraciones
+#### 4.2. Aplicar las Migraciones
 Para aplicar las migraciones y crear las tablas en la base de datos:
 
 Usando la Consola del Administrador de Paquetes:
