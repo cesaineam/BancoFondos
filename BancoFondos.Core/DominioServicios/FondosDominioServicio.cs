@@ -6,6 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using BancoFondos.Core.DominioServicios.Interfaces;
+using System.Threading;
 
 namespace BancoFondos.Core.DominioServicios
 {
@@ -13,13 +14,15 @@ namespace BancoFondos.Core.DominioServicios
     {
         private readonly IFondoRepositorio _fondoRepositorio;
         private readonly ITransaccionRepositorio _transaccionRepositorio;
+        private readonly IClienteRepositorio _clienteRepositorio;
 
         // Constructor sin inyección de la propia interfaz
-        public FondosDominioServicio(IFondoRepositorio fondoRepositorio, ITransaccionRepositorio transaccionRepositorio)
+        public FondosDominioServicio(IFondoRepositorio fondoRepositorio, ITransaccionRepositorio transaccionRepositorio,IClienteRepositorio clienteRepositorio)
         {
 
             _fondoRepositorio = fondoRepositorio;
             _transaccionRepositorio = transaccionRepositorio;
+            _clienteRepositorio = clienteRepositorio;
         }
 
         public async Task<ResultadoTransaccion> SuscribirTransaccionAsync(Transaccion transaccion)
@@ -46,6 +49,74 @@ namespace BancoFondos.Core.DominioServicios
         {
             var transacciones = await _transaccionRepositorio.GetHistorialTransaccionesAsync(clienteId);
             return transacciones;
+        }
+        public async Task<ResultadoTransaccion> MoverFondo(Transaccion transaccion, string tipo)
+        {
+            Cliente cliente = await _clienteRepositorio.ObtenerPorIdAsync(transaccion.ClienteId);
+            FondosInfo fondo = await _fondoRepositorio.ObtenerPorIdAsync(transaccion.FondoId);
+
+            if (tipo == "Apertura")
+            {
+                if (transaccion.Monto <= cliente.Saldo && transaccion.Monto >= fondo.MontoMinimo)
+                {
+                    //Debitar saldo de cliente
+
+                    cliente.Saldo -= transaccion.Monto;
+                    await _clienteRepositorio.ActualizarAsync(cliente);
+
+
+                    var _fondo = new Fondo
+                    {
+                        //Id = .Id,
+                        Nombre = fondo.Nombre,
+                        Rendimiento = transaccion.Monto,
+                        Estado = "Activo"
+                    };
+                    //Crear Fondo
+                    var fondoCreado = await _fondoRepositorio.InsertarFondoAsync(_fondo);
+                    //Grabar transaccion
+                    var _transaccion = await _transaccionRepositorio.InsertarTransaccionAsync(transaccion);
+
+                }
+                return new ResultadoTransaccion
+                {
+                    EsExitoso = true,
+                    Mensaje = "Apertura exitosa"
+                };
+            }
+            else
+            {
+                //DeshabilitarFondo
+                var fondo = await _fondoRepositorio.ObtenerPorIdAsync(transaccion.FondoId);
+                if (fondo == null)
+                {
+                    return new ResultadoTransaccion
+                    {
+                        EsExitoso = false,
+                        Mensaje = "No se encontro fondo"
+                    }; ; // Fondo no encontrado
+                }
+
+                fondo.Estado = "Cancelado";
+                await _fondoRepositorio.ActualizarAsync(fondo);
+
+                //Debitar saldo a cliente 
+                cliente.Saldo += transaccion.Monto;
+                await _clienteRepositorio.ActualizarAsync(cliente);
+
+                //Grabar transaccion
+
+                var _transaccion = await _transaccionRepositorio.InsertarTransaccionAsync(transaccion);
+
+                return new ResultadoTransaccion
+                {
+                    EsExitoso = true,
+                    Mensaje = "Cancelacion exitosa"
+                };
+
+            }
+            
+
         }
     }
 }

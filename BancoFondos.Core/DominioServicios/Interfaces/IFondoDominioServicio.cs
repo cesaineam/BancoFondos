@@ -11,6 +11,7 @@ namespace BancoFondos.Core.DominioServicios.Interfaces
     {
         Task<ResultadoTransaccion> SuscribirTransaccionAsync(Transaccion transaccion);
         Task<List<Transaccion>> GetHistorialTransaccionesAsync(int clienteId);
+         Task<ResultadoTransaccion> MoverFondo(Transaccion transaccion, string tipoMovimiento)
 
     }
 }

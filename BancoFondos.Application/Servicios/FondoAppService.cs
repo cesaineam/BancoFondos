@@ -34,6 +34,11 @@ namespace BancoFondos.Application.Servicios
             return FondoMapper.ConvertirListaEntidadADto(transacciones);
         }
 
-
+        public async Task<ResultadoTransaccionDto> MoverFondo(InsertarTransaccionInputDto transaccion, string tipoMovimiento)
+        {
+            var movimiento = FondoMapper.TransaccionConvertirDtoAEntidad(transaccion);
+            var resultadoTransaccion = await _fondoDominioServicio.MoverFondo(movimiento, tipoMovimiento);
+            return FondoMapper.ResultadoTransaccionConvertirEntidadADto(resultadoTransaccion);
+        }
     }
 }

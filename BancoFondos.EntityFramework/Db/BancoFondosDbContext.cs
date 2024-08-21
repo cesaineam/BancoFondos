@@ -21,6 +21,8 @@ namespace BancoFondos.EntityFramework.Db
         public DbSet<Cliente> Clientes { get; set; }
         public DbSet<Fondo> Fondos { get; set; }
         public DbSet<Transaccion> Transacciones  { get; set; }
+        public DbSet<FondosInfo> FondosInfos { get; set; }
+        
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<Cliente>(entity =>

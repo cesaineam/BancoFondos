@@ -10,5 +10,8 @@ namespace BancoFondos.Core.Repositorios
     public interface IClienteRepositorio
     {
         Task<Cliente> InsertarClienteAsync(Cliente cliente);
+        Task<Cliente> ObtenerPorIdAsync(int id);
+
+        Task ActualizarAsync(Cliente cliente);
     }
 }

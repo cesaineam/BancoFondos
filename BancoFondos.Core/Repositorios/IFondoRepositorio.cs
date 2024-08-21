@@ -10,6 +10,9 @@ namespace BancoFondos.Core.Repositorios
     public interface IFondoRepositorio
     {        
           Task<Fondo> InsertarFondoAsync(Fondo fondo);
+        Task<FondosInfo> ObtenerPorIdAsync(int id);
+        Task ActualizarAsync(Fondo fondo);
+        Task<Fondo> ObtenerFondoPorIdAsync(int id);
 
     }
 }
